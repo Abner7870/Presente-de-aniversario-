@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dia 26 de agosto</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            background: linear-gradient(
+                135deg,
+                #3d00ca,
+                #7b35dc
+            );
+
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: white;
+
+            overflow-x: hidden;
+        }
+
+
+        /* =====================================
+           CABEÇALHO
+           ===================================== */
+
+        header {
+            height: 120px;
+
+            background: linear-gradient(
+                135deg,
+                #3d00ca,
+                #7b35dc
+            );
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            position: relative;
+
+            overflow: visible;
+
+            z-index: 10;
+        }
+
+
+        header h1 {
+            margin: 0;
+
+            font-size: 34px;
+
+            position: relative;
+
+            z-index: 5;
+        }
+
+
+        /* =====================================
+           CORAÇÕES DO CABEÇALHO
+           ===================================== */
+
+        .coracao-cabecalho {
+            position: absolute;
+
+            font-size: 30px;
+
+            animation: flutuar 3s ease-in-out infinite;
+
+            z-index: 2;
+        }
+
+
+        .c1 {
+            left: 4%;
+            top: 25px;
+            color: #ff3b5c;
+        }
+
+
+        .c2 {
+            left: 15%;
+            top: 65px;
+            color: #d9d9ff;
+        }
+
+
+        .c3 {
+            left: 23%;
+            top: 20px;
+            color: #ff3b5c;
+        }
+
+
+        .c4 {
+            right: 22%;
+            top: 20px;
+            color: #d9d9ff;
+        }
+
+
+        .c5 {
+            right: 14%;
+            top: 65px;
+            color: #d9d9ff;
+        }
+
+
+        .c6 {
+            right: 4%;
+            top: 25px;
+            color: #ff3b5c;
+        }
+
+
+        /* =====================================
+           ÁREA PRINCIPAL
+           ===================================== */
+
+        .area-principal {
+            position: relative;
+
+            min-height: calc(100vh - 120px);
+
+            padding-bottom: 75px;
+        }
+
+
+        /* =====================================
+           MOLDURA
+           ===================================== */
+
+        .moldura {
+            position: absolute;
+
+            top: 7px;
+
+            left: 8.3%;
+            right: 8.3%;
+
+            bottom: 58px;
+
+            border: 4px solid #e8b8ff;
+
+            border-radius: 14px;
+
+            pointer-events: none;
+
+            z-index: 2;
+        }
+
+
+        /* =====================================
+           CORAÇÕES DAS LATERAIS
+           ===================================== */
+
+        .lateral {
+            position: absolute;
+
+            top: 0;
+            bottom: 0;
+
+            width: 55px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: space-around;
+
+            align-items: center;
+
+            pointer-events: none;
+
+            z-index: 5;
+        }
+
+
+        .lateral-esquerda {
+            left: 10px;
+        }
+
+
+        .lateral-direita {
+            right: 10px;
+        }
+
+
+        .lateral span {
+            font-size: 28px;
+
+            animation: flutuar 3s ease-in-out infinite;
+        }
+
+
+        .vermelho {
+            color: #ff3b5c;
+        }
+
+
+        .branco {
+            color: #d9d9ff;
+        }
+
+
+        /* =====================================
+           CONTEÚDO
+           ===================================== */
+
+        .conteudo {
+            position: relative;
+
+            z-index: 4;
+
+            padding: 55px 11% 80px;
+        }
+
+
+        /* =====================================
+           BOTÃO
+           ===================================== */
+
+        button {
+            padding: 12px 25px;
+
+            font-size: 18px;
+
+            cursor: pointer;
+
+            border: none;
+
+            border-radius: 8px;
+
+            margin: 15px;
+
+            background-color: white;
+
+            color: #5a28c9;
+
+            transition: 0.3s;
+
+            position: relative;
+
+            z-index: 6;
+        }
+
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+
+        /* =====================================
+           SURPRESAS
+           ===================================== */
+
+        .surpresa {
+            display: none;
+
+            margin: 40px auto;
+
+            max-width: 1000px;
+
+            min-height: 400px;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 60px;
+        }
+
+
+        .surpresa img {
+            width: 350px;
+
+            max-width: 42%;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+
+        .surpresa p {
+            font-size: 22px;
+
+            line-height: 1.5;
+
+            max-width: 450px;
+
+            margin: 0;
+        }
+
+
+        /* =====================================
+           PRIMEIRA
+           ===================================== */
+
+        .primeira {
+            flex-direction: row;
+        }
+
+
+        /* =====================================
+           SEGUNDA
+           ===================================== */
+
+        .segunda {
+            flex-direction: row;
+        }
+
+
+        /* =====================================
+           TERCEIRA
+           ===================================== */
+
+        .terceira {
+            flex-direction: row;
+        }
+
+
+        /* =====================================
+           QUARTA
+           ===================================== */
+
+        .quarta {
+            flex-direction: column;
+        }
+
+
+        .quarta img {
+            max-width: 55%;
+        }
+
+
+        /* =====================================
+           CORAÇÕES FLUTUANTES
+           ===================================== */
+
+        .coracao-flutuante {
+            position: fixed;
+
+            font-size: 25px;
+
+            opacity: 0.7;
+
+            animation: subir 8s linear infinite;
+
+            pointer-events: none;
+
+            z-index: 1;
+        }
+
+
+        .f1 {
+            left: 25%;
+            bottom: -50px;
+            color: #ff3b5c;
+        }
+
+
+        .f2 {
+            left: 50%;
+            bottom: -100px;
+            color: #d9d9ff;
+            animation-delay: 2s;
+        }
+
+
+        .f3 {
+            left: 75%;
+            bottom: -70px;
+            color: #ff3b5c;
+            animation-delay: 4s;
+        }
+
+
+        .f4 {
+            left: 40%;
+            bottom: -80px;
+            color: #d9d9ff;
+            animation-delay: 6s;
+        }
+
+
+        /* =====================================
+           CORAÇÕES DO RODAPÉ
+           ===================================== */
+
+        .coracoes-rodape {
+            position: absolute;
+
+            left: 8%;
+            right: 8%;
+
+            bottom: 5px;
+
+            height: 45px;
+
+            display: flex;
+
+            justify-content: space-around;
+
+            align-items: center;
+
+            z-index: 5;
+
+            pointer-events: none;
+        }
+
+
+        .coracoes-rodape span {
+            font-size: 27px;
+
+            animation: flutuar 3s ease-in-out infinite;
+        }
+
+
+        /* =====================================
+           ANIMAÇÕES
+           ===================================== */
+
+        @keyframes subir {
+
+            0% {
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 0.8;
+            }
+
+            100% {
+                transform:
+                    translateY(-110vh)
+                    rotate(360deg);
+
+                opacity: 0;
+            }
+        }
+
+
+        @keyframes flutuar {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+
+        /* =====================================
+           CELULAR
+           ===================================== */
+
+        @media (max-width: 700px) {
+
+            header {
+                height: 100px;
+            }
+
+
+            header h1 {
+                font-size: 25px;
+            }
+
+
+            .area-principal {
+                min-height: calc(100vh - 100px);
+
+                padding-bottom: 65px;
+            }
+
+
+            .moldura {
+                left: 35px;
+                right: 35px;
+
+                top: 5px;
+
+                bottom: 50px;
+
+                border-width: 3px;
+
+                border-radius: 10px;
+            }
+
+
+            .conteudo {
+                padding: 35px 55px 70px;
+            }
+
+
+            .surpresa {
+                flex-direction: column;
+
+                gap: 25px;
+
+                margin: 35px auto;
+            }
+
+
+            .surpresa img {
+                width: 100%;
+
+                max-width: 80%;
+            }
+
+
+            .surpresa p {
+                font-size: 18px;
+
+                max-width: 100%;
+            }
+
+
+            .quarta img {
+                max-width: 80%;
+            }
+
+
+            .lateral {
+                width: 30px;
+            }
+
+
+            .lateral span {
+                font-size: 22px;
+            }
+
+
+            .coracoes-rodape {
+                left: 35px;
+                right: 35px;
+
+                bottom: 3px;
+            }
+
+
+            .coracoes-rodape span {
+                font-size: 21px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================
+         MÚSICA DE FUNDO
+         ===================================== -->
+
+    <audio
+        id="musicaFundo"
+        loop
+    >
+
+        <source
+            src="Rubel - Quando Bate Aquela Saudade [Clipe Oficial] - Rubel (youtube).mp3"
+            type="audio/mpeg"
+        >
+
+    </audio>
+
+
+    <!-- =====================================
+         CABEÇALHO
+         ===================================== -->
+
+    <header>
+
+        <span class="coracao-cabecalho c1">♥</span>
+
+        <span class="coracao-cabecalho c2">♥</span>
+
+        <span class="coracao-cabecalho c3">♥</span>
+
+        <span class="coracao-cabecalho c4">♥</span>
+
+        <span class="coracao-cabecalho c5">♥</span>
+
+        <span class="coracao-cabecalho c6">♥</span>
+
+
+        <h1>
+            Dia 26 de agosto ♡
+        </h1>
+
+    </header>
+
+
+    <!-- =====================================
+         ÁREA PRINCIPAL
+         ===================================== -->
+
+    <main class="area-principal">
+
+
+        <!-- MOLDURA -->
+
+        <div class="moldura"></div>
+
+
+        <!-- =====================================
+             CORAÇÕES LATERAIS ESQUERDOS
+             ===================================== -->
+
+        <div class="lateral lateral-esquerda">
+
+            <span class="vermelho">♥</span>
+
+            <span class="branco">♥</span>
+
+            <span class="vermelho">♥</span>
+
+            <span class="branco">♥</span>
+
+            <span class="vermelho">♥</span>
+
+            <span class="branco">♥</span>
+
+            <span class="vermelho">♥</span>
+
+            <span class="branco">♥</span>
+
+            <span class="vermelho">♥</span>
+
+            <span class="branco">♥</span>
+
+        </div>
+
+
+        <!-- =====================================
+             CORAÇÕES LATERAIS DIREITOS
+             ===================================== -->
+
+        <div class="lateral lateral-direita">
+
+            <span class="branco">♥</span>
+
+            <span class="vermelho">♥</span>
+
+            <span class="branco">♥</span>
+
+            <span class="vermelho">♥</span>
+
+            <span class="branco">♥</span>
+
+            <span class="vermelho">♥</span>
+
+            <span class="branco">♥</span>
+
+            <span class="vermelho">♥</span>
+
+            <span class="branco">♥</span>
+
+            <span class="vermelho">♥</span>
+
+        </div>
+
+
+        <!-- =====================================
+             CORAÇÕES FLUTUANTES
+             ===================================== -->
+
+        <span class="coracao-flutuante f1">♥</span>
+
+        <span class="coracao-flutuante f2">♥</span>
+
+        <span class="coracao-flutuante f3">♥</span>
+
+        <span class="coracao-flutuante f4">♥</span>
+
+
+        <!-- =====================================
+             CONTEÚDO
+             ===================================== -->
+
+        <div class="conteudo">
+
+
+            <!-- BOTÃO -->
+
+            <button
+                id="botao"
+                onclick="proximaSurpresa()"
+            >
+
+                Clique para continuar ❤️
+
+            </button>
+
+
+            <!-- =====================================
+                 PRIMEIRA SURPRESA
+                 ===================================== -->
+
+            <div
+                class="surpresa primeira"
+                id="surpresa1"
+            >
+
+                <img
+                    src="ze mane joinha.jpeg"
+                    alt="Primeira imagem"
+                >
+
+
+                <p>
+
+                    Foi neste dia que Julia Rebeca nasceu
+                    transformando a vida de todos ao seu redor
+                    e como sempre espalhando a alegria pelo ar 💜
+
+                </p>
+
+            </div>
+
+
+            <!-- =====================================
+                 SEGUNDA SURPRESA
+                 ===================================== -->
+
+            <div
+                class="surpresa segunda"
+                id="surpresa2"
+            >
+
+                <p>
+
+                    E desde então a zé mane começou a crescer
+                    sempre caindo e se machucando sozinha pois
+                    ela é um perigo pra si mesma, mas isso nunca
+                    a impediu de continuar levantando e sorrindo
+                    com seu belo sorriso colgate ❤️
+
+                </p>
+
+
+                <img
+                    src="ze mane amor.jpeg"
+                    alt="Segunda imagem"
+                >
+
+            </div>
+
+
+            <!-- =====================================
+                 TERCEIRA SURPRESA
+                 ===================================== -->
+
+            <div
+                class="surpresa terceira"
+                id="surpresa3"
+            >
+
+                <img
+                    src="ze mane foda.jpeg"
+                    alt="Terceira imagem"
+                >
+
+
+                <p>
+
+                    E conforme foi crescendo, ela foi se tornando
+                    uma pessoa incrível que sempre alegrou a vida
+                    de todos que a conhecem, e é por isso que ela
+                    é tão especial para todos nós 💜
+
+                </p>
+
+            </div>
+
+
+            <!-- =====================================
+                 QUARTA SURPRESA
+                 ===================================== -->
+
+            <div
+                class="surpresa quarta"
+                id="surpresa4"
+            >
+
+                <img
+                    src="ze mane linda.jpeg"
+                    alt="Quarta imagem"
+                >
+
+
+                <p>
+
+                    E por último, mas não menos importante, foi o
+                    dia em que o amor da minha vida nasceu. Baby,
+                    eu não tenho palavras para descrever o quão
+                    grato eu sou por ter te conhecido e por você
+                    ter me deixado entrar na sua vida como seu
+                    companheiro.
+
+                    <br><br>
+
+                    Quero que você saiba que eu te amo demais e
+                    faço de tudo por você. Quero estar com você
+                    nos melhores e nos piores momentos da sua vida,
+                    te dando todo o apoio que você precisar, e quero
+                    te lembrar também do quão incrível você é.
+
+                    <br><br>
+
+                    Você é extremamente inteligente, super sociável,
+                    uma ótima ouvinte, uma dona de babys incrível,
+                    uma mulher ultra determinada, uma pessoa
+                    extremamente madura (pra sua idade 😏 e para
+                    sua carinha de bobona), extremamente engraçada,
+                    super bobona e perfeita em todos os aspectos.
+
+                    <br><br>
+
+                    Não sou ultra religioso, meu amor, mas, se tem
+                    alguém que chegou perto de ser perfeito igual a
+                    Jesus Cristo, esse alguém foi você.
+
+                    <br><br>
+
+                    Eu te amo de muitão, meu amorzinho. Aproveita
+                    seu aniversário, bobona. Você merece tudo o que
+                    há de melhor no mundo, e que Deus te abençoe
+                    muito, meu amorzinho. ❤️
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =====================================
+             CORAÇÕES DO FINAL DA PÁGINA
+             ===================================== -->
+
+        <div class="coracoes-rodape">
+
+            <span class="branco">♥</span>
+
+            <span class="vermelho">♥</span>
+
+            <span class="branco">♥</span>
+
+            <span class="vermelho">♥</span>
+
+            <span class="branco">♥</span>
+
+            <span class="vermelho">♥</span>
+
+            <span class="branco">♥</span>
+
+            <span class="vermelho">♥</span>
+
+            <span class="branco">♥</span>
+
+        </div>
+
+
+    </main>
+
+
+    <!-- =====================================
+         JAVASCRIPT
+         ===================================== -->
+
+    <script>
+
+        let etapa = 0;
+
+
+        /* =====================================
+           MÚSICA DE FUNDO
+           ===================================== */
+
+        const musicaFundo =
+            document.getElementById("musicaFundo");
+
+
+        function iniciarMusica() {
+
+            musicaFundo.volume = 0.3;
+
+            musicaFundo.play();
+
+        }
+
+
+        /* =====================================
+           SURPRESAS
+           ===================================== */
+
+        function proximaSurpresa() {
+
+
+            /* Começa a música no primeiro clique */
+
+            if (musicaFundo.paused) {
+
+                iniciarMusica();
+
+            }
+
+
+            const botao =
+                document.getElementById("botao");
+
+
+            /* =====================================
+               PRIMEIRA SURPRESA
+               ===================================== */
+
+            if (etapa === 0) {
+
+                document
+                    .getElementById("surpresa1")
+                    .style.display = "flex";
+
+
+                botao.innerText =
+                    "Clique para continuar 💜";
+
+
+                etapa++;
+
+            }
+
+
+            /* =====================================
+               SEGUNDA SURPRESA
+               ===================================== */
+
+            else if (etapa === 1) {
+
+                document
+                    .getElementById("surpresa2")
+                    .style.display = "flex";
+
+
+                botao.innerText =
+                    "Mais uma surpresa ❤️";
+
+
+                etapa++;
+
+            }
+
+
+            /* =====================================
+               TERCEIRA SURPRESA
+               ===================================== */
+
+            else if (etapa === 2) {
+
+                document
+                    .getElementById("surpresa3")
+                    .style.display = "flex";
+
+
+                botao.innerText =
+                    "Tem mais uma! 💜";
+
+
+                etapa++;
+
+            }
+
+
+            /* =====================================
+               QUARTA SURPRESA
+               ===================================== */
+
+            else if (etapa === 3) {
+
+                document
+                    .getElementById("surpresa4")
+                    .style.display = "flex";
+
+
+                botao.innerText =
+                    "Fim da surpresa! 🎉❤️";
+
+
+                etapa++;
+
+            }
+
+
+            /* =====================================
+               FINAL
+               ===================================== */
+
+            else {
+
+                botao.innerText =
+                    "Você chegou ao final! 💜";
+
+            }
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

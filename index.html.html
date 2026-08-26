@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Feliz aniversário, meu amorzinho!</title>
+
+    <!-- Biblioteca dos confetes -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.4/dist/confetti.browser.min.js"></script>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            background: linear-gradient(
+                135deg,
+                #3d00ca,
+                #7b35dc
+            );
+
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: white;
+
+            overflow-x: hidden;
+        }
+
+
+        /* =====================================
+           CABEÇALHO
+           ===================================== */
+
+        header {
+            height: 120px;
+
+            background: linear-gradient(
+                135deg,
+                #3d00ca,
+                #7b35dc
+            );
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            position: relative;
+
+            overflow: visible;
+
+            z-index: 10;
+        }
+
+
+        header h1 {
+            margin: 0;
+
+            padding: 0 80px;
+
+            font-size: 34px;
+
+            position: relative;
+
+            z-index: 5;
+        }
+
+
+        /* =====================================
+           CORAÇÕES DO CABEÇALHO
+           ===================================== */
+
+        .coracao-cabecalho {
+            position: absolute;
+
+            font-size: 30px;
+
+            animation: flutuar 3s ease-in-out infinite;
+
+            z-index: 2;
+        }
+
+
+        .c1 {
+            left: 4%;
+            top: 50px;
+            color: #ff3b5c;
+        }
+
+
+        .c2 {
+            left: 15%;
+            top: 80px;
+            color: #e8b8ff;
+        }
+
+
+        .c3 {
+            left: 23%;
+            top: 20px;
+            color: #ff3b5c;
+        }
+
+
+        .c4 {
+            right: 22%;
+            top: 25px;
+            color: #d9d9ff;
+        }
+
+
+        .c5 {
+            right: 14%;
+            top: 80px;
+            color: #d9d9ff;
+        }
+
+
+        .c6 {
+            right: 4%;
+            top: 25px;
+            color: #ff3b5c;
+        }
+
+
+        /* =====================================
+           ÁREA PRINCIPAL
+           ===================================== */
+
+        .area-principal {
+            position: relative;
+
+            min-height: calc(100vh - 120px);
+
+            padding-bottom: 75px;
+        }
+
+
+        /* =====================================
+           MOLDURA
+           ===================================== */
+
+        .moldura {
+            position: absolute;
+
+            top: 7px;
+
+            left: 8.3%;
+            right: 8.3%;
+
+            bottom: 58px;
+
+            border: 4px solid #e8b8ff;
+
+            border-radius: 14px;
+
+            pointer-events: none;
+
+            z-index: 2;
+        }
+
+
+        /* =====================================
+           CORAÇÕES DAS LATERAIS
+           ===================================== */
+
+        .lateral {
+            position: absolute;
+
+            top: 0;
+            bottom: 0;
+
+            width: 55px;
+
+            display: flex;
+            flex-direction: column;
+
+            justify-content: space-around;
+            align-items: center;
+
+            pointer-events: none;
+
+            z-index: 5;
+        }
+
+
+        .lateral-esquerda {
+            left: 10px;
+        }
+
+
+        .lateral-direita {
+            right: 10px;
+        }
+
+
+        .lateral span {
+            font-size: 28px;
+
+            animation: flutuar 3s ease-in-out infinite;
+        }
+
+
+        .vermelho {
+            color: #ff3b5c;
+        }
+
+
+        .branco {
+            color: #d9d9ff;
+        }
+
+
+        /* =====================================
+           CONTEÚDO
+           ===================================== */
+
+        .conteudo {
+            position: relative;
+
+            z-index: 4;
+
+            min-height: calc(100vh - 120px);
+
+            padding: 55px 11% 80px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+
+        /* =====================================
+           BOTÕES
+           ===================================== */
+
+        button {
+            padding: 12px 25px;
+
+            font-size: 18px;
+
+            cursor: pointer;
+
+            border: none;
+
+            border-radius: 8px;
+
+            margin: 15px;
+
+            background-color: white;
+
+            color: #5a28c9;
+
+            transition: 0.3s;
+
+            position: relative;
+
+            z-index: 6;
+
+            max-width: 700px;
+        }
+
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+
+        /* =====================================
+           SURPRESA
+           ===================================== */
+
+        #surpresa {
+            display: none;
+
+            margin-top: 25px;
+
+            max-width: 800px;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-direction: column;
+
+            gap: 15px;
+        }
+
+
+        #surpresa img {
+            width: 300px;
+
+            max-width: 80%;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+
+        #texto {
+            font-size: 22px;
+
+            line-height: 1.5;
+
+            margin: 15px 0;
+        }
+
+
+        /* =====================================
+           SEGUNDO BOTÃO
+           ===================================== */
+
+        .buton {
+            margin-top: 10px;
+        }
+
+
+        /* =====================================
+           CORAÇÕES FLUTUANTES
+           ===================================== */
+
+        .coracao-flutuante {
+            position: fixed;
+
+            font-size: 25px;
+
+            opacity: 0.7;
+
+            animation: subir 8s linear infinite;
+
+            pointer-events: none;
+
+            z-index: 1;
+        }
+
+
+        .f1 {
+            left: 25%;
+            bottom: -50px;
+            color: #ff3b5c;
+        }
+
+
+        .f2 {
+            left: 50%;
+            bottom: -100px;
+            color: #d9d9ff;
+            animation-delay: 2s;
+        }
+
+
+        .f3 {
+            left: 75%;
+            bottom: -70px;
+            color: #ff3b5c;
+            animation-delay: 4s;
+        }
+
+
+        .f4 {
+            left: 40%;
+            bottom: -80px;
+            color: #d9d9ff;
+            animation-delay: 6s;
+        }
+
+
+        /* =====================================
+           CORAÇÕES DO RODAPÉ
+           ===================================== */
+
+        .coracoes-rodape {
+            position: absolute;
+
+            left: 8%;
+            right: 8%;
+
+            bottom: 5px;
+
+            height: 45px;
+
+            display: flex;
+
+            justify-content: space-around;
+
+            align-items: center;
+
+            z-index: 5;
+
+            pointer-events: none;
+        }
+
+
+        .coracoes-rodape span {
+            font-size: 27px;
+
+            animation: flutuar 3s ease-in-out infinite;
+        }
+
+
+        /* =====================================
+           ANIMAÇÕES
+           ===================================== */
+
+        @keyframes subir {
+
+            0% {
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 0.8;
+            }
+
+            100% {
+                transform:
+                    translateY(-110vh)
+                    rotate(360deg);
+
+                opacity: 0;
+            }
+        }
+
+
+        @keyframes flutuar {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+
+        /* =====================================
+           CELULAR
+           ===================================== */
+
+        @media (max-width: 700px) {
+
+            header {
+                height: 100px;
+            }
+
+
+            header h1 {
+                font-size: 25px;
+
+                padding: 0 50px;
+            }
+
+
+            .area-principal {
+                min-height: calc(100vh - 100px);
+
+                padding-bottom: 65px;
+            }
+
+
+            .moldura {
+                left: 35px;
+                right: 35px;
+
+                top: -3px;
+
+                bottom: 50px;
+
+                border-width: 3px;
+
+                border-radius: 10px;
+            }
+
+
+            .conteudo {
+                min-height: calc(100vh - 100px);
+
+                padding: 35px 55px 70px;
+            }
+
+
+            button {
+                font-size: 16px;
+
+                max-width: 90%;
+            }
+
+
+            #surpresa img {
+                max-width: 80%;
+            }
+
+
+            #texto {
+                font-size: 18px;
+            }
+
+
+            .lateral {
+                width: 30px;
+            }
+
+
+            .lateral span {
+                font-size: 22px;
+            }
+
+
+            .coracoes-rodape {
+                left: 35px;
+                right: 35px;
+
+                bottom: 3px;
+            }
+
+
+            .coracoes-rodape span {
+                font-size: 21px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================
+         CABEÇALHO
+         ===================================== -->
+
+    <header>
+
+        <span class="coracao-cabecalho c1">♥</span>
+        <span class="coracao-cabecalho c2">♥</span>
+        <span class="coracao-cabecalho c3">♥</span>
+        <span class="coracao-cabecalho c4">♥</span>
+        <span class="coracao-cabecalho c5">♥</span>
+        <span class="coracao-cabecalho c6">♥</span>
+
+        <h1>
+            Feliz aniversário, meu amorzinho que Deus te abençoe muito sua zé mané!!!
+        </h1>
+
+    </header>
+
+
+    <!-- =====================================
+         ÁREA PRINCIPAL
+         ===================================== -->
+
+    <main class="area-principal">
+
+
+        <!-- MOLDURA -->
+
+        <div class="moldura"></div>
+
+
+        <!-- CORAÇÕES LATERAIS ESQUERDOS -->
+
+        <div class="lateral lateral-esquerda">
+
+            <span class="vermelho">♥</span>
+            <span class="branco">♥</span>
+            <span class="vermelho">♥</span>
+            <span class="branco">♥</span>
+            <span class="vermelho">♥</span>
+            <span class="branco">♥</span>
+            <span class="vermelho">♥</span>
+            <span class="branco">♥</span>
+            <span class="vermelho">♥</span>
+            <span class="branco">♥</span>
+
+        </div>
+
+
+        <!-- CORAÇÕES LATERAIS DIREITOS -->
+
+        <div class="lateral lateral-direita">
+
+            <span class="branco">♥</span>
+            <span class="vermelho">♥</span>
+            <span class="branco">♥</span>
+            <span class="vermelho">♥</span>
+            <span class="branco">♥</span>
+            <span class="vermelho">♥</span>
+            <span class="branco">♥</span>
+            <span class="vermelho">♥</span>
+            <span class="branco">♥</span>
+            <span class="vermelho">♥</span>
+
+        </div>
+
+
+        <!-- CORAÇÕES FLUTUANTES -->
+
+        <span class="coracao-flutuante f1">♥</span>
+        <span class="coracao-flutuante f2">♥</span>
+        <span class="coracao-flutuante f3">♥</span>
+        <span class="coracao-flutuante f4">♥</span>
+
+
+        <!-- CONTEÚDO -->
+
+        <div class="conteudo">
+
+
+            <!-- PRIMEIRO BOTÃO -->
+
+            <button onclick="mostrarSurpresa()">
+                Clique aqui para uma surpresa!
+            </button>
+
+
+            <!-- SURPRESA -->
+
+            <div id="surpresa">
+
+                <img
+                    src="emojis.avif"
+                    alt="Emojis de aniversário"
+                >
+
+                <p id="texto">
+                    Dia 26 de agosto um dia muito especial por um motivo interessante
+                    quer descobrir???
+                    <br>
+                    Clique no botão abaixo!!!
+                </p>
+
+            </div>
+
+
+            <!-- SEGUNDO BOTÃO -->
+
+            <div class="buton">
+
+                <button onclick="abrirPagina2()">
+                    Clique aqui para saber motivo do dia 26 de agosto
+                    ser tão especial para mim e para todos a nosso redor.
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- CORAÇÕES DO FINAL DA PÁGINA -->
+
+        <div class="coracoes-rodape">
+
+            <span class="branco">♥</span>
+            <span class="vermelho">♥</span>
+            <span class="branco">♥</span>
+            <span class="vermelho">♥</span>
+            <span class="branco">♥</span>
+            <span class="vermelho">♥</span>
+            <span class="branco">♥</span>
+            <span class="vermelho">♥</span>
+            <span class="branco">♥</span>
+
+        </div>
+
+
+    </main>
+
+
+    <!-- =====================================
+         ÁUDIOS
+         ===================================== -->
+
+    <!-- Som do primeiro botão -->
+    <audio
+        id="musica"
+        src="Yippee Sound Effect.mp3">
+    </audio>
+
+
+    <!-- Som do segundo botão -->
+    <audio
+        id="musica2"
+        src="Boing sound effect - -Random_channel_lol- (youtube).mp3">
+    </audio>
+
+
+    <script>
+
+        /* =====================================
+           PRIMEIRO BOTÃO
+           ===================================== */
+
+        function mostrarSurpresa() {
+
+            // Mostra a imagem e o texto
+            document.getElementById("surpresa").style.display = "flex";
+
+
+            // Toca o primeiro áudio
+            const musica = document.getElementById("musica");
+
+            musica.currentTime = 0;
+
+            musica.play();
+
+
+            // Confetes saindo da esquerda
+            confetti({
+
+                particleCount: 120,
+
+                spread: 70,
+
+                startVelocity: 60,
+
+                origin: {
+                    x: 0,
+                    y: 0.7
+                },
+
+                angle: 45
+
+            });
+
+
+            // Confetes saindo da direita
+            confetti({
+
+                particleCount: 120,
+
+                spread: 70,
+
+                startVelocity: 60,
+
+                origin: {
+                    x: 1,
+                    y: 0.7
+                },
+
+                angle: 135
+
+            });
+
+        }
+
+
+        /* =====================================
+           SEGUNDO BOTÃO
+           ===================================== */
+
+        function abrirPagina2() {
+
+            // Pega o segundo áudio
+            const musica2 = document.getElementById("musica2");
+
+            // Começa o áudio do início
+            musica2.currentTime = 0;
+
+            // Toca o segundo som
+            musica2.play();
+
+            // Espera o som terminar e depois abre a página 2
+            musica2.onended = function() {
+                window.location.href = "pagina2.html";
+            };
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
